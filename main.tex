@@ -1,0 +1,396 @@
+% !TeX spellcheck = en-US
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% THIS TEMPLATE_article_for_IJET_jrnl.tex is based on
+%% bare_jrnl.tex
+%% V1.3
+%% 2007/01/11
+%% by Michael Shell
+%% see http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.7 or later) with an IEEE journal paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/tex-archive/macros/latex/contrib/IEEEtran/
+%% and
+%% http://www.ieee.org/
+
+
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. IEEE's font choices can trigger bugs that do  ***
+% *** not appear when using other class files.                            ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE!
+%% User assumes all risk.
+%% In no event shall IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%
+%% File list of work: IEEEtran.cls, IEEEtran_HOWTO.pdf, bare_adv.tex,
+%%                    bare_conf.tex, bare_jrnl.tex, bare_jrnl_compsoc.tex
+%%*************************************************************************
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[journal,a4paper,twoside]{IEEEtran}
+
+\def\IEEEkeywordsname{Keywords}
+\usepackage{ragged2e}
+
+
+
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage[citestyle=numeric-comp,bibstyle=ieee,%
+backend=biber,sortcites]{biblatex}
+\renewbibmacro*{bbx:savehash}{} % Remove annoying dash
+\addbibresource{bib/bib-art1.bib}
+\addbibresource{bib/manual-biblatex.bib}
+
+
+
+\usepackage{url}
+
+\usepackage{graphicx}
+\usepackage{epstopdf}
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+\usepackage{balance}
+
+\usepackage[bottom]{footmisc}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage[
+type={CC},
+modifier={by},
+version={4.0},
+]{doclicense}
+
+\widowpenalty=300000
+\clubpenalty=300000
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EDITOR SECTION (Please Do not change)
+
+%IJET first page header
+%%% FIXME TODO
+\newcommand{\YEAR}{2020}
+\newcommand{\VOLUME}{66}
+\newcommand{\NUMBER}{1}
+\newcommand{\PAGES}{1--6}
+\newcommand{\RECEIVEDATE}{October 10, 2019}
+\newcommand{\REVISIONDATE}{January, 2020}
+\newcommand{\DOI}{DOI: 10.24425/ijet.2019.126xxx}
+
+\usepackage{fancyhdr}
+\lhead
+{
+	\begin{picture}(0,0)
+	\put(0,-35){\includegraphics{logo_first_page}}
+	\put(30,-22){\scriptsize\MakeUppercase{INTL Journal of Electronics and Telecommunications, \YEAR, Vol. \VOLUME, no. \NUMBER, pp. \PAGES}}
+	\put(30,-30){\scriptsize{Manuscript received \RECEIVEDATE; revised \REVISIONDATE.$\qquad\,\quad\qquad$\DOI}}
+	\end{picture}
+}
+\chead{}
+\rhead{}
+\lfoot
+{
+	\begin{picture}(0,0)
+	\put(0,0){\doclicenseImage[imagewidth=5.5em]}
+	\put(65,12){\scriptsize $\copyright$
+	{\scriptsize The Author(s). This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY 4.0,}}
+	\put(65,2){\scriptsize {\href{https://creativecommons.org/licenses/by/4.0/}{https://creativecommons.org/licenses/by/4.0/}), which permits use, distribution, and reproduction in any medium, provided that the Article is properly cited.}}
+	\end{picture}}
+
+\cfoot{}
+\rfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%\begin{multicols}{1}
+%\fancyfoot[L]{\doclicenseImage[imagewidth=4em] $\copyright$
+%	{\scriptsize The Author(s). This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY 4.0, \href{https://creativecommons.org/licenses/by/4.0/}{https://creativecommons.org/licenses/by/4.0/}), which permits use, distribution, and reproduction in any medium, provided that the Article is properly cited.}}
+%\pagestyle{fancy}
+%\end{multicols}
+
+\setcounter{page}{1}
+
+\linespread{1.02}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AUTHOR SECTION ( This is a skeleton file demonstrating the use of TEMPLATE_article_for_IJET_jrnl.tex)
+%%pdfinfo is document information - this information makes pdf much more usefull for search engines;
+%%clik ctr+D on open pdf document and check information about this document
+
+%TODO
+\pdfinfo {
+	/Author (Mikołaj Kowalski, Wojciech Mazurczyk)
+	/Title (Towards mutual routing security -- a review)
+	/Keywords (Routing protocols, Network security, Telecommunication network reliability, Wide area networks)
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BODY OF THE ARTICLE
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+
+\title{\vspace{1cm} Towards mutual routing security -- a review}
+%\title{\vspace{1cm} Mutual routing security with RPKI\\ -- protect your peers just like in pandemic time}
+%
+%
+% author names and IEEE memberships
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+
+\author{Mikołaj~Kowalski, Wojciech~Mazurczyk% <-this % stops a space
+	\thanks{This work was supported by the grant No. xxxxxx ”Doktorat wdrożeniowy” by Ministerstwo Edukacji i Nauki.}% stops a space
+	\thanks{M.~Kowalski is with Faculty of Electronics and Information Technology, Warsaw University of Technology, Poland (e-mail: 6796@pw.edu.pl).}% <-this % stops a space
+	\thanks{Professor W.~Mazurczyk is with Faculty of Electronics and Information Technology, Warsaw University of Technology, Poland (e-mail:  wmazurcz@(NOSPAM)elka.pw.edu.pl).}% <-this % stops a space
+}
+
+
+% note the % following the last \IEEEmembership and also \thanks -
+% these prevent an unwanted space from occurring between the last author name
+% and the end of the author line. i.e., if you had this:
+%
+% \author{....lastname \thanks{...} \thanks{...} }
+%                     ^------------^------------^----Do not want these spaces!
+%
+% a space would be appended to the last name and could cause every name on that
+% line to be shifted left slightly. This is one of those \L{}aTeX things". For
+% instance, "\textbf{A} \textbf{B}" will typeset as \k{A} B" not \k{A}B". To get
+% \k{A}B" then you have to do: "\textbf{A}\textbf{B}"
+% \thanks is no different in this regard, so shield the last } of each \thanks
+% that ends a line with a % and do not let a space in before the next \thanks.
+% Spaces after \IEEEmembership other than the last one are OK (and needed) as
+% you are supposed to have spaces between the names. For what it is worth,
+% this is a minor point as most people would not even notice if the said evil
+% space somehow managed to creep in.
+
+
+
+% The paper headers
+%\markboth{Journal of \LaTeX\ Class Files,~Vol.~6, No.~1, January~2007}%
+%{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Journals}%
+%
+\markboth{}{}
+%
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+%
+% *** Note that you probably will NOT want to include the author's ***
+% *** name in the headers of peer review papers.                   ***
+% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
+% you desire.
+
+
+
+
+% If you want to put a publisher's ID mark on the page you can do it like
+% this:
+%\IEEEpubid{0000--0000/00\$00.00~\copyright~2007 IEEE}
+% Remember, if you use this you must call \IEEEpubidadjcol in the second
+% column for its text to clear the IEEEpubid mark.
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+%IJET header for even and odd pages (Caution: with exeption the first page)
+\maketitle
+\thispagestyle{fancy}%
+\markboth{M.~Kowalski, W.~Mazurczyk}{Example of Article for International Journals of Electronics and Telecommunications} %TODO
+%
+
+
+% ABSTRACT
+
+\begin{abstract}
+Historically, the inter-domain routing security had to be established based on trust, due to poorly designed BGP protocol. This approach is insufficient, as seen in practice numerous times.
+To prevent this, new kind of security measures were proposed and are needed to be implemented on Internet's majority AS'es.
+%\\
+
+This article covers the current threat landscape and taxonomy of attack vectors on routing layer, as well as current and new protective measures with theirs future development plans and caveats.
+
+However, due to current system design, the protection is based on mutual protection. This causes the chicken or the egg problem. Author will try to explain slow adoption rate.
+\end{abstract}
+
+
+% KEYWORDS
+
+\begin{IEEEkeywords}
+Routing protocols, Network security, Telecommunication network reliability, Wide area networks
+\end{IEEEkeywords}
+
+\IEEEpeerreviewmaketitle
+
+% FIRST section - INTRODUCTION
+
+\section{Introduction to routing security}
+
+\IEEEPARstart{A}{utonomous Systems} (ASes) are main, essential entity in today's Internet. As defined in \cite{rfc1930},
+"an AS is a connected group of one or more IP prefixes run by one or more network operators which has a SINGLE and CLEARLY DEFINED routing policy".
+When routing policy is configured and accepted by adjacent ASes (peers) traffic is allowed to flow.
+
+If a traffic is traversing in an unintended fashion (conflicting with the routing policy), one can call a \emph{routing incident}.
+Detailed breakdown of incident types and enumeration of different scenarios is presented in section \ref{def:tax}.
+Threat landscape and risk analysis are available in \ref{def:impact}.
+
+There are well defined means of protection which mitigates impact for these attacks. Main division factor that should differentiate them is \emph{passive} -- traditionally used as basic BGP \emph{hygiene} intended for verifying the trust of a peer or traffic engineering tricks, and \emph{proactive} means -- new generation technologies that guarantee an incident will not happen. Both categories are described in sections \ref{protect:filtering} and \ref{protect:rov},\ref{protect:path}, respectively.
+
+In section \ref{now:slow} author summarizes the RPKI implementation global progression and tries to give a prognosis on future efforts. To give complete view, section \ref{now:caveats} describes some unwanted scenarios and threat that RPKI introduces. The section \ref{now:future} provides the overview on future development directions.
+
+Section \ref{conclusion} states author's conclusions.
+
+
+
+%%%%%%%%%%%%%%%%%%%%
+
+\input{content/taxonomy}
+
+%%%%%%%%%%%%%%%%%%%%5
+
+\input{content/countermeasures}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\input{content/current}
+
+%%%%%%%%%%%%%%%%%
+
+\section{Conclusion}
+\label{conclusion}
+
+Internet to dziki zachód ale robim co możem 
+
+\begin{displayquote}
+	In the Internet, routing announcements are accepted without almost any validation\\
+	•This opens a possibility for a network operator to announce someone else's network prefixes without permission\\
+	•The prefix may be announced with the same origin\\
+	•The prefix may be leaked\\
+	•A malicious operator can steal prefixes and blackhole them or intercept and modify traffic in transit\\
+	•A good operator can also steal someone's network occasionally, by an error\\
+	•A malicious employee of a good operator is then able to read and modify incoming traffic as well\\
+	•Unauthorized access to operator's equipment can also be used for hijacking
+	\cite{Gavrichenkov2015}
+	
+	\end{displayquote}
+	
+
+
+
+% ACKNOWLEDGMENT
+% use section* for acknowledgement
+%\section*{Acknowledgment}
+
+%The authors would like to thank...
+
+% REFERENCES
+
+% Can use something like this to put references on a page
+% by themselves when using endfloat and the captionsoff option.
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+% references section
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+%\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{IEEEabrv,../bib/paper}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\balance
+%% REFERENCES
+
+\printbibliography
+
+% insert where needed to balance the two columns on the last page with
+% biographies
+%\newpage
+
+%\begin{IEEEbiographynophoto}{Jane Doe}
+%Biography text here.
+%\end{IEEEbiographynophoto}
+
+% You can push biographies down or up by placing
+% a \vfill before or after them. The appropriate
+% use of \vfill depends on what kind of text is
+% on the last page and whether or not the columns
+% are being equalized.
+
+%\vfill
+
+% Can be used to pull up biographies so that the bottom of the last one
+% is flush with the other column.
+%\enlargethispage{-5in}
+
+
+
+% that's all folks
+\end{document}
