@@ -54,6 +54,7 @@ Authors in \cite{Sermpezis2018a} proposed a very detailed taxonomy, with three s
 \subsection{Impact of routing incidents}
 \label{def:impact}
 \subsubsection{BGP Hijacks}
+\label{def:impact:hj}
 When a Autonomous System attempt Hijack it may affect availability, integrity, and confidentiality of communications in the victim network. The impact depends mostly on the intent of the incident, closely related to the adversary agenda. However, to break down to technical indicators, lets analyse it by the incident type data-plane traffic handling. 
 
 For blackhole there is availability problem for victim's network and possible full outage (denial of service situation). It is similar in effect to data-plane DoS attack, but it's less expected and harder to defend to. 
@@ -64,6 +65,7 @@ The most advanced technique is impersonating victim's servers. <TODO>
 
 
 \subsubsection{Route leaks}
+\label{def:impact:rl}
 With Route Leaks, <TODO>
 
 Route leak will cause a redirection of traffic to the different path that it was intended. This may or may not result in overloading some network equipment and network links or blackholing the traffic altogether. 
@@ -101,3 +103,6 @@ An attacker will be available to issue a valid TLS certificate, as he will be ab
 
 As presented in \cite{Gavrichenkov2015}, further executed and measured in \cite{BirgeLee2017},\cite{BirgeLee2018}, there is a possibility to issue a valid certificate that should not be issued. The mechanism presented shows a bug in CA's verification procedure, however using BGP routing attack can exploit this bug, leading to further target impersonating by the attacker.
 Researchers suggest two countermeasures for CA's: \emph{Multiple Vantage Point Verification} and \emph{Monitoring BGP Route Age}.
+
+\subsubsection{Excessive BGP ASPath prepending increase risk of successful routing incident}
+Many network operators use prependig as a traffic shaping tool, because by the design of the BGP protocol, router should choose the shorter, not prepended route (assuming that other criteria are equal). Prepending is a common practice in the Internet and if done correctly if may be used beneficially for traffic steering. However, researchers point out\cite{Madory2019} that wrong usage called \textbf{prepend-to-all} has been observed in over a 8\% prefixes of IPv4 Global Routing Table. This practice is all about advertising the prefix with multiple origin ASN repetition in the AS Path. This opens a vulnerability that if another AS will announce (mistakenly or on purpose) same prefix with shorter AS Path, traffic will be redirected from it's usual path with consequences as described in \ref{def:impact:rl}. 
