@@ -103,6 +103,8 @@ modifier={by},
 version={4.0},
 ]{doclicense}
 
+\usepackage{todonotes}
+
 \widowpenalty=300000
 \clubpenalty=300000
 
@@ -255,13 +257,13 @@ version={4.0},
 % ABSTRACT
 
 \begin{abstract}
-Historically, the inter-domain routing security had to be established based on trust, due to poorly designed BGP protocol. This approach is insufficient, as seen in practice numerous times.
-To prevent this, new kind of security measures were proposed and are needed to be implemented on Internet's majority AS'es.
-%\\
+Historically, the inter-domain routing security had to be established based on trust, due to poorly designed BGP protocol. This approach is insufficient, as seen in practice numerous times. To prevent this, new kind of security measures were proposed and thus are needed to be implemented on Internet's majority Autonomous Systems.
 
-This article covers the current threat landscape and taxonomy of attack vectors on routing layer, as well as current and new protective measures with theirs future development plans and caveats.
+This article covers the current threat landscape and existing taxonomy of attack vectors on routing layer, with the analysis of incident types and giving the detailed breakdown in incidents classification. In order to ..., best/new unified taxonomy will be proposed./  \todo[inline]{czy review to miejsce na nowe taksonomie?  czy analiza porownawcza jest wystarczajaca?}
 
-However, due to current system design, the protection is based on mutual protection. This causes the chicken or the egg problem. Author will try to explain slow adoption rate.
+The review contain comprehensive protective measures study, with current techniques efficiency as well as caveats. Authors also dissect most promising development plans for new and existing countermeasures.
+
+However, due to current Resource Public Key infrastructure system design, safeguard mechanisms of routing security are based on mutual protection. This causes the chicken or the egg problem. Authors will try to explain slow adoption rate and some estimates will be given. 
 \end{abstract}
 
 
@@ -277,19 +279,22 @@ Routing protocols, Network security, Telecommunication network reliability, Wide
 
 \section{Introduction to routing security}
 
-\IEEEPARstart{A}{utonomous Systems} (ASes) are main, essential entity in today's Internet. As defined in \cite{rfc1930},
-"an AS is a connected group of one or more IP prefixes run by one or more network operators which has a SINGLE and CLEARLY DEFINED routing policy".
-When routing policy is configured and accepted by adjacent ASes (peers) traffic is allowed to flow.
 
-If a traffic is traversing in an unintended fashion (conflicting with the routing policy), one can call a \emph{routing incident}.
+\IEEEPARstart{A}{utonomous Systems} (ASes) are main, essential entity in today's Internet. As defined in \cite{rfc1930}, "an AS is a connected group of one or more IP prefixes run by one or more network operators which has a SINGLE and CLEARLY DEFINED routing policy". When routing policy is configured and accepted by adjacent ASes (peers) traffic is allowed to flow. If a traffic is traversing in an unintended fashion (conflicting with the routing policy), one can call a \emph{routing incident}.
+
+Routing incidents has been a subject of a study for over a two decades now. In a plethora of research papers, we have seen \cite{Chakrabarti2002} there are too generic or \cite{Schlamp2016} too formal. However, there are some work that in our opinion maintain the perfect balance. We in detail discuss \cite{rfc7908} taxonomy that has been defined to serve as a common definition for Internet users and operators community and \cite{Sermpezis2018a} which is based on novel approach. To complement this great works, we propose some additional common metrics, to provide a unified characterization of routing incidents.
+
 Detailed breakdown of incident types and enumeration of different scenarios is presented in section \ref{def:tax}.
+\todo[inline]{todo po napisaniu tego par}
+
 Threat landscape and risk analysis are available in \ref{def:impact}.
+\todo[inline]{todo po napisaniu tego par}
 
 There are well defined means of protection which mitigates impact for these attacks. Main division factor that should differentiate them is \emph{passive} -- traditionally used as basic BGP \emph{hygiene} intended for verifying the trust of a peer or traffic engineering tricks, and \emph{proactive} means -- new generation technologies that guarantee an incident will not happen. Both categories are described in sections \ref{protect:filtering} and \ref{protect:rov},\ref{protect:path}, respectively.
 
 In section \ref{now:slow} author summarizes the RPKI implementation global progression and tries to give a prognosis on future efforts. To give complete view, section \ref{now:caveats} describes some unwanted scenarios and threat that RPKI introduces. The section \ref{now:future} provides the overview on future development directions.
 
-Section \ref{conclusion} states author's conclusions.
+Section \ref{conclusion} states authors' conclusions.
 
 
 
